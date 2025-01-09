@@ -57,6 +57,7 @@ body {
 .hero {
     text-align: center;
     padding: var(--spacing-xl) var(--spacing-lg);
+    margin-top: 100px;
     background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
     color: white;
     margin-bottom: var(--spacing-xl);

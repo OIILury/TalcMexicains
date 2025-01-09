@@ -47,7 +47,8 @@ section p:not(:first-child) {
 .histoire-hero {
     background: linear-gradient(rgba(37, 99, 235, 0.9), rgba(30, 64, 175, 0.9)),
                 url('../img/history-bg.jpg') center/cover;
-    padding: calc(var(--spacing-xl) * 2) var(--spacing-lg);
+    padding: var(--spacing-xl) var(--spacing-lg);
+    margin-top: 100px;
 }
 
 /* Timeline */
@@ -188,23 +189,48 @@ section p:not(:first-child) {
 /* Responsive Design */
 @media (max-width: 768px) {
     .timeline::before {
-        left: auto;
-        right: 40px;
-        transform: none;
+        display: none;
     }
 
     .timeline-item {
-        width: calc(100% - 80px); /* Espace pour la barre et la marge */
+        width: calc(100% - 60px);
         padding: var(--spacing-md) 0;
-        margin: 0;
+        margin: 0 0 var(--spacing-xl) 0;
+        position: relative;
     }
 
     .timeline-item:nth-child(odd),
     .timeline-item:nth-child(even) {
         padding: var(--spacing-md) 0;
-        margin: 0;
+        margin: 0 0 var(--spacing-xl) 0;
         text-align: left;
-        padding-right: 60px; /* Espace pour la barre */
+        padding-right: 60px;
+    }
+
+    /* Barre verticale pour chaque item */
+    .timeline-item::before {
+        content: '';
+        position: absolute;
+        width: 3px;
+        height: 100%;
+        background: var(--primary-color);
+        right: 20px;
+        top: 0;
+    }
+
+    /* Point au milieu de la barre */
+    .timeline-item::after {
+        content: '';
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        background: var(--primary-color);
+        border: 3px solid var(--background-color);
+        border-radius: 50%;
+        right: 13px; /* (40px - 16px) / 2 */
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 2;
     }
 
     .timeline-content {
@@ -212,15 +238,12 @@ section p:not(:first-child) {
         margin: 0;
         font-size: 0.9rem;
         background: rgba(var(--gray-100-rgb), 0.95);
+        position: relative;
+        z-index: 1;
     }
 
     .timeline-content::before {
-        width: 16px;
-        height: 16px;
-        right: -48px !important; /* Position fixe par rapport à la barre */
-        left: auto !important;
-        top: 50% !important;
-        transform: translateY(-50%) !important;
+        display: none;
     }
 
     .timeline-content h3 {
