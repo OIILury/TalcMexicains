@@ -1,2 +1,2 @@
 # TalcMexicains
- Official Web Site for the TalcMexicain team
+ Official WebSite for the TalcMexicain team
