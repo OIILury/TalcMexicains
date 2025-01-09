@@ -47,8 +47,8 @@ section p:not(:first-child) {
 .histoire-hero {
     background: linear-gradient(rgba(37, 99, 235, 0.9), rgba(30, 64, 175, 0.9)),
                 url('../img/history-bg.jpg') center/cover;
-    padding: var(--spacing-xl) var(--spacing-lg);
-    margin-top: 100px;
+    padding: 2rem 1rem;
+    margin-top: 90px;
 }
 
 /* Timeline */
@@ -95,14 +95,13 @@ section p:not(:first-child) {
 }
 
 .timeline-content {
-    background: var(--gray-100);
+    background: var(--surface-color);
     padding: var(--spacing-lg);
     border-radius: var(--border-radius);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: relative;
     z-index: 2;
     backdrop-filter: blur(8px);
-    background: rgba(var(--gray-100-rgb), 0.9);
 }
 
 .timeline-content::before {
@@ -137,9 +136,14 @@ section p:not(:first-child) {
 }
 
 .timeline-content h3 {
-    color: var(--primary-color);
+    color: var(--text-color);
     margin-bottom: var(--spacing-sm);
     font-size: 1.5rem;
+}
+
+.timeline-content p {
+    color: var(--text-color);
+    line-height: 1.6;
 }
 
 .timeline-content img {
@@ -164,7 +168,7 @@ section p:not(:first-child) {
 }
 
 .mission-card {
-    background: var(--background-color);
+    background: var(--surface-color);
     padding: var(--spacing-lg);
     border-radius: var(--border-radius);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -181,9 +185,14 @@ section p:not(:first-child) {
 }
 
 .mission-card h3 {
-    color: var(--primary-color);
+    color: var(--text-color);
     margin-bottom: var(--spacing-sm);
     font-size: 1.25rem;
+}
+
+.mission-card p {
+    color: var(--text-color);
+    line-height: 1.6;
 }
 
 /* Responsive Design */
@@ -278,4 +287,25 @@ section p:not(:first-child) {
 
 [data-theme="dark"] {
     --gray-100-rgb: 31, 41, 55;
+}
+
+[data-theme="dark"] .timeline-content,
+[data-theme="dark"] .mission-card {
+    background: var(--surface-color);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .timeline-content h3,
+[data-theme="dark"] .mission-card h3 {
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .timeline-content p,
+[data-theme="dark"] .mission-card p {
+    color: var(--text-color-light);
+}
+
+[data-theme="dark"] .date {
+    background: var(--primary-color);
+    color: white;
 }

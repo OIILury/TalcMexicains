@@ -43,8 +43,8 @@
 .project-hero {
     background: linear-gradient(rgba(37, 99, 235, 0.9), rgba(30, 64, 175, 0.9)),
                 url('../img/projects-bg.jpg') center/cover;
-    padding: var(--spacing-xl) var(--spacing-lg);
-    margin-top: 100px;
+    padding: 2rem 1rem;
+    margin-top: 90px;
 }
 
 /* Section des projets */
