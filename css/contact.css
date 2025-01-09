@@ -1,50 +1,195 @@
 /* contact.css */
 
-/* Style de la liste des contacts */
-.contacts {
-    display: flex;
-    flex-wrap: wrap;
-    width: 90%;
+/* Hero spécifique à la page contact */
+.contact-hero {
+    background: linear-gradient(rgba(37, 99, 235, 0.9), rgba(30, 64, 175, 0.9)),
+                url('../img/contact-bg.jpg') center/cover;
+    padding: var(--spacing-2xl) var(--spacing-lg);
+    margin-top: 80px;
+    text-align: center;
+    color: var(--white);
+}
+
+.contact-hero .hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-md);
+}
+
+.contact-hero .hero-subtitle {
+    font-size: 1.25rem;
+    opacity: 0.9;
+}
+
+/* Sections d'équipe */
+.team-section {
+    padding: var(--spacing-2xl) var(--spacing-lg);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-xl);
+    color: var(--primary-color);
+}
+
+/* Grille de contacts */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 0 var(--spacing-md);
 }
-/* Style de chaque contact */
-.contact {
-    width: 20%;
+
+/* Cartes de contact */
+.contact-card {
+    background: var(--white);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.contact-image {
+    width: 100%;
     height: 300px;
-    margin: 1%;
-    padding: 5px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
 }
-.contact:hover {
+
+.contact-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.contact-card:hover .contact-image img {
     transform: scale(1.05);
 }
-/* Style de l'image du contact */
-.contact img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
+
+.contact-info {
+    padding: var(--spacing-lg);
 }
 
-/* Style du pseudo du contact */
-.contact h3 {
-    margin: 0;
-    padding: 10px;
-    background-color: #f0f0f0; /* Fond gris */
+.contact-info h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-color);
 }
 
-/* Style du statut du contact */
-.contact div {
-    padding: 10px;
-    background-color: #f0f0f0;
+.contact-info .role {
+    color: var(--primary-color);
+    font-weight: 500;
+    margin-bottom: var(--spacing-xs);
 }
 
-/* Style du lien sur le contact */
-.contact a {
-    text-decoration: none; /* Supprime les soulignements */
-    color: inherit;
+.contact-info .projects {
+    color: var(--text-color-light);
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-lg);
+}
+
+.contact-actions {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.contact-actions a {
+    flex: 1;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius);
+    text-align: center;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-cv {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-cv:hover {
+    background-color: var(--primary-color-dark);
+}
+
+.btn-contact {
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-contact:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+/* Mode sombre */
+[data-theme="dark"] .contact-card {
+    background: var(--surface-color);
+}
+
+[data-theme="dark"] .contact-info h3 {
+    color: var(--text-color-dark);
+}
+
+[data-theme="dark"] .contact-info .projects {
+    color: var(--text-color-dark-light);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-hero .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .contact-hero .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        padding: 0 var(--spacing-sm);
+    }
+
+    .contact-card {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .contact-image {
+        height: 250px;
+    }
+
+    .contact-info {
+        padding: var(--spacing-md);
+    }
+
+    .contact-actions {
+        flex-direction: column;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.contact-card {
+    animation: fadeIn 0.5s ease forwards;
 }

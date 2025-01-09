@@ -3,95 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TM Corp.</title>
+    <meta name="description" content="Découvrez l'équipe Talc Mexicain - Nos développeurs et stagiaires passionnés.">
+    <title>Notre Équipe - Talc Mexicain</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/header.css">
-    <style>
-        .thumbnail {
-            width: 200px;
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin: 10px;
-            float: left;
-        }
-        .thumbnail img {
-            max-width: 100%;
-            height: auto;
-        }
-    </style>
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="js/main.js" defer></script>
+    <script src="js/scroll-animations.js" defer></script>
 </head>
 <body>
-    <header>
+    <header role="banner">
         <div class="logo">
-            <a href="index.html">
-                <img src="img/logo.png" alt="Logo de l'entreprise">
+            <a href="index.html" aria-label="Accueil Talc Mexicain">
+                <img src="img/logo.png" alt="Logo Talc Mexicain" width="150" height="50">
             </a>
         </div>
-        <nav>            
+        <nav role="navigation" aria-label="Navigation principale">            
             <ul class="menu-ordi">
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="histoire.html">Histoire</a></li>
                 <li><a href="project.html">Projets</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.html" aria-current="page">Contact</a></li>
             </ul>
-            <div class="menu-deroulant">
-                <input type="checkbox" id="menu-toggle">
-                <label for="menu-toggle" id="menu-icon">
-                    <div class="line"></div>
-                    <div class="line"></div>
-                    <div class="line"></div>
-                </label>
-                <div id="menu-panel">
-                    <ul>
-                        <li><a href="histoire.html">Histoire</a></li>
-                        <li><a href="project.html">Projets</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
+            <button class="menu-toggle" aria-expanded="false" aria-controls="menu-panel">
+                <span class="sr-only">Menu</span>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </button>
+            <div id="menu-panel" class="menu-panel" hidden>
+                <ul>
+                    <li><a href="histoire.html">Histoire</a></li>
+                    <li><a href="project.html">Projets</a></li>
+                    <li><a href="contact.html" aria-current="page">Contact</a></li>
+                </ul>
             </div>
         </nav>
     </header>
-    
-    <main>        
-        <h1>Liste des membres</h1>
-    
-        <?php
-        // Connexion à la base de données
-        $serveur = "localhost";
-        $utilisateur = "root";
-        $motdepasse = "";
-        $basededonnees = "talc_mexicain";
-    
-        $connexion = new mysqli($serveur, $utilisateur, $motdepasse, $basededonnees);
-    
-        // Vérifier la connexion
-        if ($connexion->connect_error) {
-            die("La connexion a échoué : " . $connexion->connect_error);
-        }
-    
-        // Récupérer tous les membres et leurs informations
-        $sql = "SELECT * FROM Membre";
-        $resultat = $connexion->query($sql);
-    
-        if ($resultat->num_rows > 0) {
-            while ($row = $resultat->fetch_assoc()) {
-                echo '<div class="thumbnail">';
-                echo '<a href="#">';
-                echo '<img src="data:image/jpeg;base64,'.base64_encode($row['imgProfil']).'" alt="Image de profil">';
-                echo '<div>'.$row['pseudo'].'</div>';
-                echo '<div>'.$row['status'].'</div>';
-                echo '</a>';
-                echo '</div>';
-            }
-        } else {
-            echo "Aucun membre enregistré.";
-        }
-    
-        // Fermer la connexion
-        $connexion->close();
-        ?>
-        
 
+    <main role="main">
+        <section class="hero contact-hero" aria-labelledby="hero-title">
+            <h1 id="hero-title" class="hero-title">Notre Équipe</h1>
+            <p class="hero-subtitle">Découvrez les talents derrière Talc Mexicain</p>
+        </section>
+
+        <section class="team-section developers" aria-labelledby="developers-title">
+            <h2 id="developers-title" class="section-title">Nos Développeurs</h2>
+            <div class="contact-grid">
+                <article class="contact-card" data-aos="fade-up">
+                    <div class="contact-image">
+                        <img src="img/ppAxilyx.png" alt="Photo de DORIAN Vivot" loading="lazy">
+                    </div>
+                    <div class="contact-info">
+                        <h3>DORIAN Vivot</h3>
+                        <p class="role">Développeur Full Stack</p>
+                        <p class="projects">12 projets réalisés</p>
+                        <div class="contact-actions">
+                            <a href="#" class="btn-cv" target="_blank" rel="noopener">Voir le CV</a>
+                            <a href="mailto:dorian.vivot@example.com" class="btn-contact">Contact</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="contact-card" data-aos="fade-up">
+                    <div class="contact-image">
+                        <img src="img/ppLorenzo.png" alt="Photo de PASERO Lorenzo" loading="lazy">
+                    </div>
+                    <div class="contact-info">
+                        <h3>PASERO Lorenzo</h3>
+                        <p class="role">Expert Backend</p>
+                        <p class="projects">15 projets réalisés</p>
+                        <div class="contact-actions">
+                            <a href="#" class="btn-cv" target="_blank" rel="noopener">Voir le CV</a>
+                            <a href="mailto:lorenzo.pasero@example.com" class="btn-contact">Contact</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="contact-card" data-aos="fade-up">
+                    <div class="contact-image">
+                        <img src="img/pet_the_alexis.gif" alt="Photo de PARIS Alexis" loading="lazy">
+                    </div>
+                    <div class="contact-info">
+                        <h3>PARIS Alexis</h3>
+                        <p class="role">Développeur Frontend</p>
+                        <p class="projects">10 projets réalisés</p>
+                        <div class="contact-actions">
+                            <a href="#" class="btn-cv" target="_blank" rel="noopener">Voir le CV</a>
+                            <a href="mailto:alexis.paris@example.com" class="btn-contact">Contact</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="contact-card" data-aos="fade-up">
+                    <div class="contact-image">
+                        <img src="img/areuagrass.jfif" alt="Photo de GRITTI Aaron" loading="lazy">
+                    </div>
+                    <div class="contact-info">
+                        <h3>GRITTI Aaron</h3>
+                        <p class="role">Architecte Logiciel</p>
+                        <p class="projects">8 projets réalisés</p>
+                        <div class="contact-actions">
+                            <a href="#" class="btn-cv" target="_blank" rel="noopener">Voir le CV</a>
+                            <a href="mailto:aaron.gritti@example.com" class="btn-contact">Contact</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="contact-card" data-aos="fade-up">
+                    <div class="contact-image">
+                        <img src="img/strawberry.jpg" alt="Photo de BEUGNOT Evan" loading="lazy">
+                    </div>
+                    <div class="contact-info">
+                        <h3>BEUGNOT Evan</h3>
+                        <p class="role">DevOps Engineer</p>
+                        <p class="projects">7 projets réalisés</p>
+                        <div class="contact-actions">
+                            <a href="#" class="btn-cv" target="_blank" rel="noopener">Voir le CV</a>
+                            <a href="mailto:evan.beugnot@example.com" class="btn-contact">Contact</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="contact-card" data-aos="fade-up">
+                    <div class="contact-image">
+                        <img src="img/petitChien.webp" alt="Photo de MASLIN Camille" loading="lazy">
+                    </div>
+                    <div class="contact-info">
+                        <h3>MASLIN Camille</h3>
+                        <p class="role">UI/UX Designer</p>
+                        <p class="projects">9 projets réalisés</p>
+                        <div class="contact-actions">
+                            <a href="#" class="btn-cv" target="_blank" rel="noopener">Voir le CV</a>
+                            <a href="mailto:camille.maslin@example.com" class="btn-contact">Contact</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="contact-card" data-aos="fade-up">
+                    <div class="contact-image">
+                        <img src="img/LuryAnChinois.png" alt="Photo de ROLLAND Baptiste" loading="lazy">
+                    </div>
+                    <div class="contact-info">
+                        <h3>ROLLAND Baptiste</h3>
+                        <p class="role">Chef de Projet</p>
+                        <p class="projects">11 projets réalisés</p>
+                        <div class="contact-actions">
+                            <a href="#" class="btn-cv" target="_blank" rel="noopener">Voir le CV</a>
+                            <a href="mailto:baptiste.rolland@example.com" class="btn-contact">Contact</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="team-section interns" aria-labelledby="interns-title">
+            <h2 id="interns-title" class="section-title">Nos Stagiaires</h2>
+            <div class="contact-grid">
+                <article class="contact-card" data-aos="fade-up">
+                    <div class="contact-image">
+                        <img src="img/ppZafer.webp" alt="Photo de Zafer" loading="lazy">
+                    </div>
+                    <div class="contact-info">
+                        <h3>Zafer</h3>
+                        <p class="role">Stagiaire Développement</p>
+                        <p class="projects">2 projets réalisés</p>
+                        <div class="contact-actions">
+                            <a href="#" class="btn-cv" target="_blank" rel="noopener">Voir le CV</a>
+                            <a href="mailto:zafer@example.com" class="btn-contact">Contact</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="contact-card" data-aos="fade-up">
+                    <div class="contact-image">
+                        <img src="img/ppAdam.jpg" alt="Photo de Adam" loading="lazy">
+                    </div>
+                    <div class="contact-info">
+                        <h3>Adam</h3>
+                        <p class="role">Stagiaire Design</p>
+                        <p class="projects">3 projets réalisés</p>
+                        <div class="contact-actions">
+                            <a href="#" class="btn-cv" target="_blank" rel="noopener">Voir le CV</a>
+                            <a href="mailto:adam@example.com" class="btn-contact">Contact</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="contact-card" data-aos="fade-up">
+                    <div class="contact-image">
+                        <img src="img/ppGibril.jpg" alt="Photo de Gibril" loading="lazy">
+                    </div>
+                    <div class="contact-info">
+                        <h3>Gibril</h3>
+                        <p class="role">Stagiaire Marketing</p>
+                        <p class="projects">1 projet réalisé</p>
+                        <div class="contact-actions">
+                            <a href="#" class="btn-cv" target="_blank" rel="noopener">Voir le CV</a>
+                            <a href="mailto:gibril@example.com" class="btn-contact">Contact</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
     </main>
+
+    <footer role="contentinfo">
+        <p>&copy; 2024 Talc Mexicain. Tous droits réservés.</p>
+    </footer>
 </body>
 </html>
