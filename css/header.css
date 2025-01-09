@@ -1,104 +1,134 @@
 header {
-    background-color: #03559E;
-    color: #fff;
-    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    padding: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 120px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
 }
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
 .logo img {
-    height: 100px;
-    width: 100px;
-    margin-left: 50px;
+    height: 50px;
+    width: auto;
 }
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    margin-right: 20px;
+
+nav {
+    display: flex;
+    align-items: center;
 }
-nav ul li {
-    display: inline;
-    margin-left: 10px;
+
+.menu-ordi {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
 }
-nav ul li a {
-    color: #fff;
+
+.menu-ordi a {
+    color: var(--text-color);
     text-decoration: none;
-    font-size: 1.5em;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
 }
-.menu-deroulant{
+
+.menu-ordi a:hover {
+    background-color: var(--gray-100);
+    color: var(--primary-color);
+}
+
+.menu-ordi a[aria-current="page"] {
+    color: var(--primary-color);
+    background-color: var(--gray-100);
+}
+
+.menu-toggle {
     display: none;
-}
-/* Styles pour le menu burger */
-#menu-toggle {
-    display: none;
-}
-#menu-icon {
-    margin-right: 50px;
-    display: block;
+    background: none;
+    border: none;
     cursor: pointer;
+    padding: 0.5rem;
 }
-/* Styles pour les lignes du menu burger */
-.line {
-    width: 30px;
-    height: 4px;
+
+.menu-toggle .line {
+    width: 24px;
+    height: 2px;
+    background-color: var(--text-color);
+    margin: 5px 0;
+    transition: 0.3s;
+}
+
+.menu-panel {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
     background-color: white;
-    margin: 6px 0;
-    transition: transform 0.3s ease;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-/* Styles pour l'animation du menu burger */
-#menu-toggle:checked + #menu-icon .line:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
+
+.menu-panel ul {
+    list-style: none;
 }
-#menu-toggle:checked + #menu-icon .line:nth-child(2) {
-    opacity: 0;
+
+.menu-panel a {
+    color: var(--text-color);
+    text-decoration: none;
+    display: block;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
 }
-#menu-toggle:checked + #menu-icon .line:nth-child(3) {
-    transform: rotate(-45deg) translate(9px, -9px);
+
+.menu-panel a:hover {
+    background-color: var(--gray-100);
+    color: var(--primary-color);
 }
-/* Styles pour le panneau de menu */
-#menu-panel {
-    opacity: 0;
-    visibility: hidden;
-    background-color: #3A7AB3;
-    padding: 20px;
-    position: fixed;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: opacity 0.5s ease, top 0.5s ease, visibility 0.2s;
-}
-/* Affichage du panneau de menu lorsque le menu burger est coché */
-#menu-toggle:checked ~ #menu-panel {
-    opacity: 1;
-    visibility: visible;
-    top: 130px;
-}
-@media screen and (max-width: 768px) {
-    /*Partie en-tete*/   
-    header h1{
+
+@media (max-width: 768px) {
+    .menu-ordi {
         display: none;
-    }    
-    .logo img {
-        margin-left: 25px;
-    }    
-    .menu-ordi nav ul {
-        margin-left: 50px;
     }
-    .menu-deroulant{
+
+    .menu-toggle {
         display: block;
     }
-    #menu-panel ul {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);        
-        margin-left: -10px;        
-    }    
-    #menu-panel ul li {
-        text-align: center;        
+
+    .menu-panel {
+        width: 200px;
     }
-    .menu-ordi{
+
+    .menu-panel[hidden] {
         display: none;
+    }
+
+    .menu-panel:not([hidden]) {
+        display: block;
+    }
+
+    /* Animation du menu burger */
+    .menu-toggle[aria-expanded="true"] .line:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .menu-toggle[aria-expanded="true"] .line:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle[aria-expanded="true"] .line:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
     }
 }

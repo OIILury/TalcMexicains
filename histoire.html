@@ -3,66 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TM Corp.</title>
+    <meta name="description" content="Découvrez l'histoire fascinante de Talc Mexicain, une entreprise familiale depuis 1860.">
+    <title>Histoire - Talc Mexicain</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/histoire.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="js/main.js" defer></script>
+    <script src="js/scroll-animations.js" defer></script>
 </head>
 <body>
-    <header>
+    <header role="banner">
         <div class="logo">
-            <a href="index.html">
-                <img src="img/logo.png" alt="Logo de l'entreprise">
+            <a href="index.html" aria-label="Accueil Talc Mexicain">
+                <img src="img/logo.png" alt="Logo Talc Mexicain" width="150" height="50">
             </a>
         </div>
-        <nav>            
+        <nav role="navigation" aria-label="Navigation principale">            
             <ul class="menu-ordi">
                 <li><a href="index.html">Accueil</a></li>
-                <li><a href="histoire.html">Histoire</a></li>
+                <li><a href="histoire.html" aria-current="page">Histoire</a></li>
                 <li><a href="project.html">Projets</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-            <div class="menu-deroulant">
-                <input type="checkbox" id="menu-toggle">
-                <label for="menu-toggle" id="menu-icon">
-                    <div class="line"></div>
-                    <div class="line"></div>
-                    <div class="line"></div>
-                </label>
-                <div id="menu-panel">
-                    <ul>
-                        <li><a href="histoire.html">Histoire</a></li>
-                        <li><a href="project.html">Projets</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
+            <button class="menu-toggle" aria-expanded="false" aria-controls="menu-panel">
+                <span class="sr-only">Menu</span>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </button>
+            <div id="menu-panel" class="menu-panel" hidden>
+                <ul>
+                    <li><a href="histoire.html" aria-current="page">Histoire</a></li>
+                    <li><a href="project.html">Projets</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
             </div>
         </nav>
     </header>
-<main>
-    <h1>Notre Histoire</h1>
-    <section class="histoire">
-        <h2>Découvrez nos origines</h2>
-        <p>Bienvenue chez Talc Mexicain, une entreprise familiale ancrée dans l'excellence depuis 1860.</p>
-        <div id="family">
-            <img src="img/family.png">
-            <p>Fondée par le mariage stratégique des familles Talcito et Cruzisso, Talc Mexicain a débuté son parcours en tant que fabricant de talc et de saucisses mexicaines. Guidée par une vision audacieuse et une tradition transmise de génération en génération, notre entreprise a su conquérir le marché régional avant de s'envoler vers de nouveaux horizons internationaux.</p>
-        </div>
-        <div id="tuteur">
-            <img src="img/tavino.png">
-            <p>Nous sommes fiers de notre héritage, mais surtout, nous sommes tournés vers l'avenir. Sous la direction éclairée de notre maître formateur, M. Francisco Tavino, la nouvelle génération de représentants de Talc Mexicain s'engage à poursuivre l'œuvre de leurs ancêtres en propulsant notre entreprise vers l'excellence mondiale.</p>
-        </div>
-        <br>
-        <br>
-        <br>
-        <p>👆 Notre mission est simple : offrir des solutions numériques sur mesure pour des expériences utilisateurs exceptionnelles. Nous nous engageons à comprendre les besoins uniques de chaque client grâce à une analyse personnalisée, et à leur fournir des solutions évolutives et durables.</p>
 
-        <p>🚀Ce qui nous distingue, c'est notre approche agile de développement, notre engagement éco-responsable et notre design axé sur l'expérience utilisateur. Chez Talc Mexicain, nous croyons en l'importance de créer des solutions innovantes qui répondent aux besoins actuels tout en préparant nos clients pour l'avenir.</p>
+    <main role="main">
+        <section class="hero histoire-hero" aria-labelledby="hero-title">
+            <h1 id="hero-title" class="hero-title">Notre Histoire</h1>
+            <p class="hero-subtitle">Une tradition d'excellence depuis 1860</p>
+        </section>
 
-        <p>🤓Nos services incluent une maintenance et des mises à jour régulières, une formation avancée des utilisateurs sur nos solutions et un support premium disponible 7 jours sur 7. Nous sommes là pour accompagner nos clients à chaque étape de leur parcours numérique, en garantissant leur satisfaction et leur succès à long terme.</p>
+        <section class="timeline-section" aria-labelledby="timeline-title">
+            <h2 id="timeline-title" class="section-title">Notre parcours à travers le temps</h2>
+            <div class="timeline">
+                <article class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-content">
+                        <span class="date">1860</span>
+                        <h3>La Fondation</h3>
+                        <p>Mariage stratégique des familles Talcito et Cruzisso, donnant naissance à Talc Mexicain.</p>
+                        <img src="img/family.png" alt="Photo historique de la famille fondatrice" width="300" height="200" loading="lazy">
+                    </div>
+                </article>
 
-        <p>🖥️Rejoignez-nous chez Talc Mexicain et laissez-nous vous aider à réaliser vos ambitions numériques. Avec notre équipe dévouée et notre engagement envers l'excellence, nous sommes prêts à relever tous les défis et à faire de votre succès notre priorité absolue.</p>
-    </section>
-</main>
+                <article class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-content">
+                        <span class="date">1900-1950</span>
+                        <h3>L'Expansion Régionale</h3>
+                        <p>Développement de notre expertise dans la fabrication de talc et de saucisses mexicaines.</p>
+                    </div>
+                </article>
+
+                <article class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-content">
+                        <span class="date">2000</span>
+                        <h3>La Révolution Numérique</h3>
+                        <p>Transition vers les solutions numériques sous la direction de M. Francisco Tavino.</p>
+                        <img src="img/tavino.png" alt="M. Francisco Tavino, notre maître formateur" width="300" height="200" loading="lazy">
+                    </div>
+                </article>
+
+                <article class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-content">
+                        <span class="date">Aujourd'hui</span>
+                        <h3>L'Excellence Mondiale</h3>
+                        <p>Leader dans les solutions numériques innovantes et durables.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="mission-section" aria-labelledby="mission-title">
+            <h2 id="mission-title" class="section-title">Notre Mission</h2>
+            <div class="mission-grid">
+                <article class="mission-card" data-aos="zoom-in">
+                    <div class="icon">👆</div>
+                    <h3>Solutions Sur Mesure</h3>
+                    <p>Notre mission est simple : offrir des solutions numériques sur mesure pour des expériences utilisateurs exceptionnelles. Nous nous engageons à comprendre les besoins uniques de chaque client grâce à une analyse personnalisée.</p>
+                </article>
+
+                <article class="mission-card" data-aos="zoom-in">
+                    <div class="icon">🚀</div>
+                    <h3>Innovation Continue</h3>
+                    <p>Ce qui nous distingue, c'est notre approche agile de développement, notre engagement éco-responsable et notre design axé sur l'expérience utilisateur.</p>
+                </article>
+
+                <article class="mission-card" data-aos="zoom-in">
+                    <div class="icon">🤓</div>
+                    <h3>Support Premium</h3>
+                    <p>Nos services incluent une maintenance et des mises à jour régulières, une formation avancée des utilisateurs sur nos solutions et un support premium disponible 7 jours sur 7.</p>
+                </article>
+
+                <article class="mission-card" data-aos="zoom-in">
+                    <div class="icon">🖥️</div>
+                    <h3>Engagement Client</h3>
+                    <p>Rejoignez-nous chez Talc Mexicain et laissez-nous vous aider à réaliser vos ambitions numériques. Nous sommes prêts à relever tous les défis et à faire de votre succès notre priorité absolue.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <p>&copy; 2024 Talc Mexicain. Tous droits réservés.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
 </body>
 </html>

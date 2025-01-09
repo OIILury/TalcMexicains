@@ -1,0 +1,162 @@
+/* Animations de base */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Classes d'animation */
+[data-scroll] {
+    opacity: 0;
+    transition: all 1s;
+}
+
+[data-scroll="in"] {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+[data-scroll="out"] {
+    opacity: 0;
+    transform: translateY(100px);
+}
+
+/* Animations spécifiques */
+[data-scroll="fade-in"] {
+    animation: fadeIn 1s ease forwards;
+}
+
+[data-scroll="slide-left"] {
+    animation: slideInLeft 1s ease forwards;
+}
+
+[data-scroll="slide-right"] {
+    animation: slideInRight 1s ease forwards;
+}
+
+[data-scroll="scale"] {
+    animation: scaleIn 1s ease forwards;
+}
+
+/* Délais d'animation */
+[data-scroll-delay="1"] {
+    animation-delay: 0.1s;
+}
+
+[data-scroll-delay="2"] {
+    animation-delay: 0.2s;
+}
+
+[data-scroll-delay="3"] {
+    animation-delay: 0.3s;
+}
+
+[data-scroll-delay="4"] {
+    animation-delay: 0.4s;
+}
+
+[data-scroll-delay="5"] {
+    animation-delay: 0.5s;
+}
+
+/* Animation du header */
+.scroll-up header {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.scroll-down header {
+    transform: translateY(-100%);
+}
+
+header {
+    transition: transform 0.3s ease;
+}
+
+/* Animations des cartes */
+.card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Animation du menu mobile */
+.menu-panel {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.menu-panel:not([hidden]) {
+    animation: slideInRight 0.3s ease forwards;
+}
+
+/* Animation des boutons */
+.btn-hover {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Animation des images */
+.img-hover {
+    transition: transform 0.3s ease;
+}
+
+.img-hover:hover {
+    transform: scale(1.05);
+}
+
+/* Support des préférences de mouvement réduit */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+} 

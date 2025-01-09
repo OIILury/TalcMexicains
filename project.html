@@ -3,79 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TM Corp.</title>
+    <meta name="description" content="Découvrez les projets innovants de Talc Mexicain dans le développement web et autres domaines créatifs.">
+    <title>Projets - Talc Mexicain</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/histoire.css">
     <link rel="stylesheet" href="css/project.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="js/main.js" defer></script>
+    <script src="js/scroll-animations.js" defer></script>
 </head>
 <body>
-    <header>
+    <header role="banner">
         <div class="logo">
-            <a href="index.html">
-                <img src="img/logo.png" alt="Logo de l'entreprise">
+            <a href="index.html" aria-label="Accueil Talc Mexicain">
+                <img src="img/logo.png" alt="Logo Talc Mexicain" width="150" height="50">
             </a>
         </div>
-        <nav>            
+        <nav role="navigation" aria-label="Navigation principale">            
             <ul class="menu-ordi">
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="histoire.html">Histoire</a></li>
-                <li><a href="project.html">Projets</a></li>
+                <li><a href="project.html" aria-current="page">Projets</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-            <div class="menu-deroulant">
-                <input type="checkbox" id="menu-toggle">
-                <label for="menu-toggle" id="menu-icon">
-                    <div class="line"></div>
-                    <div class="line"></div>
-                    <div class="line"></div>
-                </label>
-                <div id="menu-panel">
-                    <ul>
-                        <li><a href="histoire.html">Histoire</a></li>
-                        <li><a href="project.html">Projets</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
+            <button class="menu-toggle" aria-expanded="false" aria-controls="menu-panel">
+                <span class="sr-only">Menu</span>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </button>
+            <div id="menu-panel" class="menu-panel" hidden>
+                <ul>
+                    <li><a href="histoire.html">Histoire</a></li>
+                    <li><a href="project.html" aria-current="page">Projets</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
             </div>
         </nav>
     </header>
 
-    <div class="container">
-        <h1>Les projets informatique</h1>
-        <div class="etiquettes">
-            <div class="etiquette">
-                <a class="thumbnail" href="page1.html">
-                    <img src="img/Vinland.PNG">
-                    <h3>Vinland</h3>
-                    <p>Vinland permet à ses utilisateurs de créer des campagnes avec des cartes personnalisables pour leurs sessions de jeu de rôle.</p>
-                </a>
+    <main role="main">
+        <section class="hero project-hero" aria-labelledby="hero-title">
+            <h1 id="hero-title" class="hero-title">Nos Projets</h1>
+            <p class="hero-subtitle">Découvrez nos réalisations innovantes</p>
+        </section>
+
+        <section class="projects-section" aria-labelledby="projects-title">
+            <div class="projects-container">
+                <div class="projects-filters" role="tablist" aria-label="Filtres des projets">
+                    <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">
+                        Tous les projets
+                    </button>
+                    <button class="filter-btn" data-filter="tech" role="tab" aria-selected="false">
+                        Projets Tech
+                    </button>
+                    <button class="filter-btn" data-filter="creative" role="tab" aria-selected="false">
+                        Projets Créatifs
+                    </button>
+                </div>
+
+                <div class="projects-grid" role="tabpanel">
+                    <article class="project-card" data-category="tech" data-aos="fade-up">
+                        <div class="project-image">
+                            <img src="img/Vinland.PNG" alt="Capture d'écran du projet Vinland" width="400" height="300" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <h3>Vinland</h3>
+                            <p>Vinland permet à ses utilisateurs de créer des campagnes avec des cartes personnalisables pour leurs sessions de jeu de rôle.</p>
+                            <div class="project-tags">
+                                <span class="tag">React</span>
+                                <span class="tag">Node.js</span>
+                                <span class="tag">MongoDB</span>
+                            </div>
+                            <a href="#" class="project-link" aria-label="En savoir plus sur le projet Vinland">
+                                Découvrir le projet
+                                <span class="arrow">→</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-category="creative" data-aos="fade-up">
+                        <div class="project-image">
+                            <img src="img/Vinland.PNG" alt="Couverture de La Bromance" width="400" height="300" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <h3>La Bromance</h3>
+                            <p>Une parodie créative de La Kiffance de NAPS, réinterprétée avec humour et originalité.</p>
+                            <div class="project-tags">
+                                <span class="tag">Musique</span>
+                                <span class="tag">Parodie</span>
+                            </div>
+                            <a href="#" class="project-link" aria-label="Écouter La Bromance">
+                                Écouter le morceau
+                                <span class="arrow">→</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Ajoutez d'autres projets ici -->
+                </div>
             </div>
-            <div class="etiquette">
-                <a class="thumbnail" href="page1.html">
-                    <img src="img/Vinland.PNG">
-                    <h3>Vinland</h3>
-                    <p>Vinland permet à ses utilisateurs de créer des campagnes avec des cartes personnalisables pour leurs sessions de jeu de rôle.</p>
-                </a>
-            </div>
-            <div class="etiquette">
-                <a class="thumbnail" href="page1.html">
-                    <img src="img/Vinland.PNG">
-                    <h3>Vinland</h3>
-                    <p>Vinland permet à ses utilisateurs de créer des campagnes avec des cartes personnalisables pour leurs sessions de jeu de rôle.</p>
-                </a>
-            </div>
-        </div>
-        <h1>Les autres types de projet</h1>
-        <h2>Musique</h2>
-        <div class="etiquettes">
-            <div class="etiquette">
-                <a class="thumbnail" href="page1.html">
-                    <img src="img/Vinland.PNG">
-                    <h3>La bromance</h3>
-                    <p>Chanté par un artiste inconnu</p>
-                    <p>Parody de la Kiffance de NAPS</p>
-                </a>
-            </div>
-        </div>
-    </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <p>&copy; 2024 Talc Mexicain. Tous droits réservés.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Gestion des filtres
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.project-card');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const filter = button.dataset.filter;
+
+                    // Mise à jour des boutons
+                    filterButtons.forEach(btn => {
+                        btn.classList.remove('active');
+                        btn.setAttribute('aria-selected', 'false');
+                    });
+                    button.classList.add('active');
+                    button.setAttribute('aria-selected', 'true');
+
+                    // Filtrage des projets
+                    projectCards.forEach(card => {
+                        if (filter === 'all' || card.dataset.category === filter) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

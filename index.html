@@ -3,142 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TM Corp.</title>
+    <meta name="description" content="Talc Mexicain - Une équipe passionnée depuis 1860. Découvrez notre histoire, nos projets et notre équipe.">
+    <title>Talc Mexicain - Accueil</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="js/main.js" defer></script>
+    <script src="js/scroll-animations.js" defer></script>
 </head>
 <body>
-    <header>
+    <header role="banner">
         <div class="logo">
-            <a href="accueil.html">
-                <img src="img/logo.png" alt="Logo de l'entreprise">
+            <a href="index.html" aria-label="Accueil Talc Mexicain">
+                <img src="img/logo.png" alt="Logo Talc Mexicain" width="150" height="50">
             </a>
         </div>
-        <nav>            
+        <nav role="navigation" aria-label="Navigation principale">            
             <ul class="menu-ordi">
-                <li><a href="Accueil.html">Accueil</a></li>
+                <li><a href="index.html" aria-current="page">Accueil</a></li>
                 <li><a href="histoire.html">Histoire</a></li>
                 <li><a href="project.html">Projets</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-            <div class="menu-deroulant">
-                <input type="checkbox" id="menu-toggle">
-                <label for="menu-toggle" id="menu-icon">
-                    <div class="line"></div>
-                    <div class="line"></div>
-                    <div class="line"></div>
-                </label>
-                <div id="menu-panel">
-                    <ul>
-                        <li><a href="histoire.html">Histoire</a></li>
-                        <li><a href="project.html">Projets</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
+            <button class="menu-toggle" aria-expanded="false" aria-controls="menu-panel">
+                <span class="sr-only">Menu</span>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </button>
+            <div id="menu-panel" class="menu-panel" hidden>
+                <ul>
+                    <li><a href="histoire.html">Histoire</a></li>
+                    <li><a href="project.html">Projets</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
             </div>
         </nav>
     </header>
     
-    <main>
-        <section class="welcome">
-            <h1 class="bien-cache">BIENVENUE</h1>
-            <h1>TALCMEXICAIN : VOTRE CARTEL DU SUCCÈS DEPUIS 1860 !</h1>
+    <main role="main">
+        <section class="hero" aria-labelledby="hero-title">
+            <h1 id="hero-title" class="hero-title">TALC MEXICAIN</h1>
+            <p class="hero-subtitle">Votre cartel du succès depuis 1860</p>
         </section>
         
-        <h2>L'équipe méxicaine</h2>
-        <section class="team">
-            <div class="col-1">
-                <div class="member">
-                    <img src="img/test_img.png" alt="Membre de l'équipe">
+        <section class="team-section" aria-labelledby="team-title">
+            <h2 id="team-title" class="section-title">L'équipe mexicaine</h2>
+            <div class="team-grid">
+                <article class="team-member">
+                    <img src="img/ppAxilyx.png" alt="Photo de DORIAN Vivot" width="200" height="200" loading="lazy">
                     <h3>DORIAN Vivot</h3>
-                    <p>caca</p>
-                </div>
-                <div class="member">
-                    <img src="img/test_img.png" alt="Membre de l'équipe">
+                    <p>Développeur Full Stack</p>
+                </article>
+                <article class="team-member">
+                    <img src="img/ppLorenzo.png" alt="Photo de PASERO Lorenzo" width="200" height="200" loading="lazy">
                     <h3>PASERO Lorenzo</h3>
-                    <p>caca</p>
-                </div>
-            </div>
-            <div class="col-2">
-                <div class="member">
-                    <img src="img/pet_the_alexis.gif" alt="Membre de l'équipe">
+                    <p>Expert Backend</p>
+                </article>
+                <article class="team-member">
+                    <img src="img/pet_the_alexis.gif" alt="Photo de PARIS Alexis" width="200" height="200" loading="lazy">
                     <h3>PARIS Alexis</h3>
-                    <p>caca</p>
-                </div>
-                <div class="member">
-                    <img src="img/areuagrass.jfif" alt="Membre de l'équipe">
+                    <p>Développeur Frontend</p>
+                </article>
+                <article class="team-member">
+                    <img src="img/areuagrass.jfif" alt="Photo de GRITTI Aaron" width="200" height="200" loading="lazy">
                     <h3>GRITTI Aaron</h3>
-                    <p>caca</p>
-                </div>
-                <div class="member">
-                    <img src="img/strawberry.jpg" alt="Membre de l'équipe">
+                    <p>Architecte Logiciel</p>
+                </article>
+                <article class="team-member">
+                    <img src="img/strawberry.jpg" alt="Photo de BEUGNOT Evan" width="200" height="200" loading="lazy">
                     <h3>BEUGNOT Evan</h3>
-                    <p>caca</p>
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="member">
-                    <img src="img/petitChien.webp" alt="Membre de l'équipe">
+                    <p>DevOps Engineer</p>
+                </article>
+                <article class="team-member">
+                    <img src="img/petitChien.webp" alt="Photo de MASLIN Camille" width="200" height="200" loading="lazy">
                     <h3>MASLIN Camille</h3>
-                    <p>caca</p>
-                </div>
-                <div class="member">
-                    <img src="img/test_img.png" alt="Membre de l'équipe">
+                    <p>UI/UX Designer</p>
+                </article>
+                <article class="team-member">
+                    <img src="img/LuryAnChinois.png" alt="Photo de ROLLAND Baptiste" width="200" height="200" loading="lazy">
                     <h3>ROLLAND Baptiste</h3>
-                    <p>caca</p>
-                </div>
+                    <p>Chef de Projet</p>
+                </article>
             </div>
         </section>
 
-        <h2>Les stagiaires du talc</h2>
-        <section class="team">
-            <div class="col-1">
-                <div class="member">
-                    <img src="img/lomens.jfif" alt="Les piliers de bar">
+        <section class="interns-section" aria-labelledby="interns-title">
+            <h2 id="interns-title" class="section-title">Les stagiaires du talc</h2>
+            <div class="team-grid">
+                <article class="team-member">
+                    <img src="img/ppZafer.webp" alt="Photo de Zafer" width="200" height="200" loading="lazy">
                     <h3>Zafer</h3>
-                    <p>caca</p>
-                </div>
-            </div>
-            <div class="col-2">
-                <div class="member">
-                    <img src="img/tavino.webp" alt="Les piliers de bar">
-                    <h3>adam</h3>
-                    <p>caca</p>
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="member">
-                    <img src="img/medhi.png" alt="Les piliers de bar">
+                    <p>Stagiaire Développement</p>
+                </article>
+                <article class="team-member">
+                    <img src="img/ppAdam.jpg" alt="Photo de Adam" width="200" height="200" loading="lazy">
+                    <h3>Adam</h3>
+                    <p>Stagiaire Design</p>
+                </article>
+                <article class="team-member">
+                    <img src="img/ppGibril.jpg" alt="Photo de Gibril" width="200" height="200" loading="lazy">
                     <h3>Gibril</h3>
-                    <p>caca</p>
-                </div>                
+                    <p>Stagiaire Marketing</p>
+                </article>
             </div>
         </section>
 
-        <h2>Les piliers de bar</h2>
-        <section class="team">
-            <div class="col-1">
-                <div class="member">
-                    <img src="img/lomens.jfif" alt="Les piliers de bar">
+        <section class="partners-section" aria-labelledby="partners-title">
+            <h2 id="partners-title" class="section-title">Les piliers de bar</h2>
+            <div class="team-grid">
+                <article class="team-member">
+                    <img src="img/lomens.jfif" alt="Photo de LOMENS" width="200" height="200" loading="lazy">
                     <h3>LOMENS</h3>
-                    <p>caca</p>
-                </div>
-            </div>
-            <div class="col-2">
-                <div class="member">
-                    <img src="img/tavino.webp" alt="Les piliers de bar">
+                    <p>Consultant Senior</p>
+                </article>
+                <article class="team-member">
+                    <img src="img/tavino.webp" alt="Photo de TAVINO" width="200" height="200" loading="lazy">
                     <h3>TAVINO</h3>
-                    <p>caca</p>
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="member">
-                    <img src="img/medhi.png" alt="Les piliers de bar">
+                    <p>Expert Technique</p>
+                </article>
+                <article class="team-member">
+                    <img src="img/medhi.png" alt="Photo de MEDHI" width="200" height="200" loading="lazy">
                     <h3>MEDHI</h3>
-                    <p>caca</p>
-                </div>                
+                    <p>Conseiller Stratégique</p>
+                </article>
             </div>
         </section>
     </main>
+
+    <footer role="contentinfo">
+        <p>&copy; 2024 Talc Mexicain. Tous droits réservés.</p>
+    </footer>
 </body>
 </html>
