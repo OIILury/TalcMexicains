@@ -1,0 +1,72 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ecf0f1;
+}
+main {
+    margin-top: 70px;
+    padding: 10px;
+}
+.welcome { 
+    padding-bottom: 40px;
+}
+.bien-cache{
+    display: none;
+}
+h1{
+    text-align: center;
+    color: #03559E;
+}
+h2{
+    text-align: center;
+    color: #03559E;
+}
+.team {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-items: center;
+}
+.col-1, .col-2, .col-3 {
+    flex: 1;
+    padding: 10px;
+}
+.col-1, .col-3 {
+    margin-top: 150px;
+}
+.member {
+    text-align: center;
+    width: 200px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.member img {
+    border-radius: 30%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+@media screen and (max-width: 768px) {
+    .bien-cache{
+        margin-bottom: 50px;
+        display: block;
+    }
+    .welcome{
+        margin-top: 50px;
+    }
+    /*Partie vignette team*/
+    .team {
+        grid-template-columns: 1fr;
+    }
+    .col-1, .col-3{
+        margin-top: 0;
+    }
+    .member{
+        margin-bottom: 10px;
+    }
+}
+
+

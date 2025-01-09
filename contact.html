@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TM Corp.</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/header.css">
+    <style>
+        .thumbnail {
+            width: 200px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            float: left;
+        }
+        .thumbnail img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="accueil.html">
+                <img src="img/logo.png" alt="Logo de l'entreprise">
+            </a>
+        </div>
+        <nav>            
+            <ul class="menu-ordi">
+                <li><a href="Accueil.html">Accueil</a></li>
+                <li><a href="histoire.html">Histoire</a></li>
+                <li><a href="project.html">Projets</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="menu-deroulant">
+                <input type="checkbox" id="menu-toggle">
+                <label for="menu-toggle" id="menu-icon">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </label>
+                <div id="menu-panel">
+                    <ul>
+                        <li><a href="histoire.html">Histoire</a></li>
+                        <li><a href="project.html">Projets</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <main>        
+        <h1>Liste des membres</h1>
+    
+        <?php
+        // Connexion à la base de données
+        $serveur = "localhost";
+        $utilisateur = "root";
+        $motdepasse = "";
+        $basededonnees = "talc_mexicain";
+    
+        $connexion = new mysqli($serveur, $utilisateur, $motdepasse, $basededonnees);
+    
+        // Vérifier la connexion
+        if ($connexion->connect_error) {
+            die("La connexion a échoué : " . $connexion->connect_error);
+        }
+    
+        // Récupérer tous les membres et leurs informations
+        $sql = "SELECT * FROM Membre";
+        $resultat = $connexion->query($sql);
+    
+        if ($resultat->num_rows > 0) {
+            while ($row = $resultat->fetch_assoc()) {
+                echo '<div class="thumbnail">';
+                echo '<a href="#">';
+                echo '<img src="data:image/jpeg;base64,'.base64_encode($row['imgProfil']).'" alt="Image de profil">';
+                echo '<div>'.$row['pseudo'].'</div>';
+                echo '<div>'.$row['status'].'</div>';
+                echo '</a>';
+                echo '</div>';
+            }
+        } else {
+            echo "Aucun membre enregistré.";
+        }
+    
+        // Fermer la connexion
+        $connexion->close();
+        ?>
+        
+
+    </main>
+</body>
+</html>

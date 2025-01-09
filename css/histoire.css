@@ -1,0 +1,44 @@
+.histoire img{
+    width: 200px;
+    border-radius: 15px;
+}
+#family img{
+    float: right;
+    margin-top: -25px;
+    margin-left: 20px;
+}
+#tuteur img{
+    float: left;    
+    margin-top: -20px;
+    margin-right: 20px;
+}
+.histoire {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+.histoire h2 {
+    color: #03559E;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+section p {
+    font-size: 1.2em;
+    letter-spacing: 2px;
+    line-height: 1.6;
+    color: #333;
+    text-align: justify;
+    margin-bottom: 40px;
+}
+
+section p:first-child {
+    font-weight: normal;
+}
+
+section p:not(:first-child) {
+    margin-top: 20px;
+}
